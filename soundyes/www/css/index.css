@@ -1,0 +1,330 @@
+.ui-mobile [data-role=header],.ui-mobile [data-role=footer]{
+    background-color: rgba(0, 89, 187, 0.71);
+    color: beige;
+    text-shadow: 1px 1px 12px #000;
+    font-size: 22px;
+    }
+    img{
+    width:100%;
+    }
+    form label,legend
+    {
+    color:#123456;
+    }
+    p{
+    text-align:center;
+    }
+    span{
+    color:red;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body{
+    color: rgb(0, 0, 0);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*MENU*/
+.header a, li{
+    font-family: 'Fredoka One', cursive;
+    color: #ffffff;
+    text-decoration: none;
+}
+.logo-header img{
+    width: 50px;
+}
+header{
+    background-color: #19274e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+.nav-menu ul{
+    display: flex;
+    align-items: center;
+}
+.nav-menu li{
+    margin-right: 1.5rem;
+}
+.nav-menu a:hover{
+    color: #2C7EF4;
+}
+
+.menu-icon img{
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+}
+
+.menu-icon, #check{
+    display: none;
+}
+
+@media (max-width:768px) {
+    .checkbtn{
+        display: block;
+    }
+    .menu-icon{
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+    .nav-menu ul{
+        display: block;
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background: #19274e70;
+        width: 100%;
+        height: 100vh;
+        right: 0;
+    }
+    .nav-menu ul li{
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+    }
+    .nav-menu ul li:last-child{
+        background: none;
+        padding: 1rem;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+}
+
+#banner{
+    width: 100%;
+}
+
+.seccion1{
+    background-color: #19274e;
+}
+
+.seccion2 {
+    background-color: #0f132e;
+    padding-bottom: 20x;
+}
+
+.seccion2 h1{
+    padding-bottom: 30px;
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    text-align: center;
+    letter-spacing: 0.4em;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+p{
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    text-align: justify;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+h4 {
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+h5 {
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+.card {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 20px;
+}
+
+#cartita{
+    position: relative;
+    width: 90%;
+    height: 250px;
+    margin: 20px;
+}
+
+.card .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card .front {
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #19274e;
+}
+
+.card .front img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .front h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: white;
+    background: BLACK;
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+}
+
+.card .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: #0f132e;
+    padding: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .back h3 {
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 2px;
+    font-size: 25px;
+}
+
+.card .back p {
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+#alb .card .back p {
+    letter-spacing: 1px;
+    font-size: 11px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+}
+
+.card:hover .front{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+#footer {
+    padding: 20px;
+}
+
+#footer img {
+    width: 25%; 
+}
+
+#imagen:hover {
+    filter: saturate(180%);
+}
+
+.bannerUno{
+    margin-top: 65px;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+}
+
+#cartita .back p {
+    margin: 20px 0;
+    padding: 0;
+    color: white;
+    font-size: 10Px;
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#formRegistro{
+    padding: 30px;
+}
+
+#formRegistro h5 {
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    text-align: left;
+    letter-spacing: 1px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+#emailHelp {
+    text-align: left;
+}
+
+#formLogin{
+    padding: 30px;
+}
+
+#formLogin h5 {
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    text-align: left;
+    letter-spacing: 1px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+h6 {
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+    padding-bottom: 15px;
+}
+
+i{
+    color: white;
+    width: 10px;
+    padding: 5px;
+}
+
+#nameSong{
+   opacity: 0%;
+}
+
+#canciones li {
+ text-align: left;
+ padding-left: 5px;
+}
