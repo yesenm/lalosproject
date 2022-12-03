@@ -24,7 +24,7 @@ function cargarInserts(resultado){
             + item.song + "</h3><p>" + item.description + "<br><br> ARTISTA: " +
             item.artist +  "<br> ÁLBUM: " + item.album + "</p>" +
             "<p id='id" + item.id + "'> ID: " + item.id + "</p>" +
-            "<div class='row'><div class='col-4'><a class='buttonsLikes' id='btnLike" + item.id +"' onclick='addLike" + item.id + "(), updateSong()'><i class='bi bi-hand-thumbs-up'></i></a></div><div class='col-4'><h6 id='cuenta" +  item.id + "'>" +item.likes +"</h6></div><div class='col-4'><a class='buttonsLikes' id='btnDislike" + item.id + "' onclick='rmLike" + item.id + "(), updateSong()'><i class='bi bi-hand-thumbs-down'></i></a></div></div></div></div></div>" 
+            "<div class='row'><div class='col-4'><a class='buttonsLikes' id='btnLike" + item.id +"' onclick='addLike" + item.id + "(), vibrate(), updateSong()'><i class='bi bi-hand-thumbs-up'></i></a></div><div class='col-4'><h6 id='cuenta" +  item.id + "'>" +item.likes +"</h6></div><div class='col-4'><a class='buttonsLikes' id='btnDislike" + item.id + "' onclick='rmLike" + item.id + "(), vibrate(), updateSong()'><i class='bi bi-hand-thumbs-down'></i></a></div></div></div></div></div>" 
             
         );
     }

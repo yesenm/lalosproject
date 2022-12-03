@@ -1,7 +1,6 @@
 function singup(e){
     event.preventDefault();
     
-    
     var email = document.getElementById('emailR').value;
     var username = document.getElementById('usuarioR').value;
     var pass = document.getElementById('password1R').value;
@@ -35,7 +34,7 @@ function singup(e){
         
         alert('Usuario agregado correctamente');
 
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     }
 }
 
@@ -52,8 +51,8 @@ function loginFunc(e){
         alert("Escribe tu nombre de usuario");
     } else if (pass == null || pass == ""){
         alert("Escribe tu contraseña");
-    } else if(user == null){
-        alert('Usuario no existente');
+    } else if (user == null){
+        alert ('Usuario no existente');
     }else if(username == data.username && pass == data.password){
         window.location="main.html";
     }else{
