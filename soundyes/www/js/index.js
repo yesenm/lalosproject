@@ -1,36 +1,44 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 
-function onDeviceReady() {
-    base_datos.createDB();
+var cursor = {
+     id: -1,
+     likes: -1
 }
 
-function addUserIndividual(){   
-     
-    var username = $('#usuarioR').val();
-    var email = $('#emailR').val();
-    var password = $('#password1R').val();
-    var password2R = $('#password2R').val();
-    
-    var validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-   
-    if (username == null || username == ""){
-        alert("Escribe tu username");
-    } else if (email == null || email == "" || !validEmail.test(email)){
-        alert("Escribe un correo electrónico válido");
-    } else if (password == null || password == "" || password.length < 8){
-        alert("La contraseña debe ser mayor a 8 dígitos");
-    } else if (password2R == null || password2R == ""){
-        alert("Repite la contraseña");
-    } else if ( password != password2R){
-        alert("Las contraseñas no son iguales, verifica lo que has escrito");
-    } else {
+function onDeviceReady() {
+    base_datos.createDB();
+    likes.loadLikes(cargarInserts);
+}
 
-        usuarios.addUser(username, email, password);
-        $('#usuarioR').val("");
-        $('#emailR').val("");
-        $('#password1R').val("");
-        $('#password2R').val("");
+function cargarInserts(resultado){
+    var length = resultado.rows.length;
+    var lstCanciones = $('#lista');
+    lstCanciones.empty();
+    
+    for (var i = 0; i<length;  i++){
+        var item = resultado.rows.item(i);
         
+        $('#lista').append(
+            "<div class='col-sm-12 col-md-6 col-lg-6 card' style='align-content: center; ><div class='card' id='cartita'><div class='face front'><img src='img/TopSongs/" + item.id +".jpg'></img><h3>" + 
+            item.song + "</h3></div><div class='face back'><h3>" 
+            + item.song + "</h3><p>" + item.description + "<br><br> ARTISTA: " +
+            item.artist +  "<br> ÁLBUM: " + item.album + "</p>" +
+            "<p id='id" + item.id + "'> ID: " + item.id + "</p>" +
+            "<div class='row'><div class='col-4'><a class='buttonsLikes' id='btnLike" + item.id +"' onclick='addLike" + item.id + "(), updateSong()'><i class='bi bi-hand-thumbs-up'></i></a></div><div class='col-4'><h6 id='cuenta" +  item.id + "'>" +item.likes +"</h6></div><div class='col-4'><a class='buttonsLikes' id='btnDislike" + item.id + "' onclick='rmLike" + item.id + "(), updateSong()'><i class='bi bi-hand-thumbs-down'></i></a></div></div></div></div></div>" 
+            
+        );
     }
+
+    lstCanciones.on("tap", "div", function(){
+        cursor.id = $(this).find("[name='id']").text();
+        cursor.likes = $(this).find("[name='likes']").text();
+    });
+}
+
+function updateSong(){
+    var nuevoLike = $("#cuenta1").text();
+    var nuevoId = $("#id1").text();
+
+    likes.updateSong(cursor.id, nuevoLike);
     
 }
