@@ -356,3 +356,11 @@ i{
     border-radius: 5px;
     align-content: left;
 }
+
+#banner{
+    width: 100%;
+}
+
+.esconder{
+    opacity: 0;
+}

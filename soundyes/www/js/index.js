@@ -1,10 +1,5 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 
-var cursor = {
-     id: -1,
-     likes: -1
-}
-
 function onDeviceReady() {
     base_datos.createDB();
     likes.loadLikes(cargarInserts);
@@ -12,9 +7,7 @@ function onDeviceReady() {
 
 function cargarInserts(resultado){
     var length = resultado.rows.length;
-    var lstCanciones = $('#lista');
-    lstCanciones.empty();
-    
+
     for (var i = 0; i<length;  i++){
         var item = resultado.rows.item(i);
         
@@ -23,22 +16,16 @@ function cargarInserts(resultado){
             item.song + "</h3></div><div class='face back'><h3>" 
             + item.song + "</h3><p>" + item.description + "<br><br> ARTISTA: " +
             item.artist +  "<br> ÁLBUM: " + item.album + "</p>" +
-            "<p id='id" + item.id + "'> ID: " + item.id + "</p>" +
-            "<div class='row'><div class='col-4'><a class='buttonsLikes' id='btnLike" + item.id +"' onclick='addLike" + item.id + "(), vibrate(), updateSong()'><i class='bi bi-hand-thumbs-up'></i></a></div><div class='col-4'><h6 id='cuenta" +  item.id + "'>" +item.likes +"</h6></div><div class='col-4'><a class='buttonsLikes' id='btnDislike" + item.id + "' onclick='rmLike" + item.id + "(), vibrate(), updateSong()'><i class='bi bi-hand-thumbs-down'></i></a></div></div></div></div></div>" 
-            
+            "<div class='row'><div class='col-4'><a class='buttonsLikes' id='btnLike" + item.id +"' onclick='addLike" + item.id + "(), vibrate(), updateSong()'><i class='bi bi-hand-thumbs-up'></i></a></div><div class='col-4'><h6 id='cuenta" +  item.id + "'>" +item.likes +"</h6></div><div class='col-4'><a class='buttonsLikes' id='btnDislike" + item.id + "' onclick='rmLike" + item.id + "(), vibrate(), updateSong()'><i class='bi bi-hand-thumbs-down'></i></a></div></div>" +
+            "<p class='esconder' id='id" + item.id + "'> ID: " + item.id + "</p></div></div></div>" 
         );
     }
-
-    lstCanciones.on("tap", "div", function(){
-        cursor.id = $(this).find("[name='id']").text();
-        cursor.likes = $(this).find("[name='likes']").text();
-    });
 }
 
 function updateSong(){
     var nuevoLike = $("#cuenta1").text();
     var nuevoId = $("#id1").text();
 
-    likes.updateSong(cursor.id, nuevoLike);
+    likes.updateSong(nuevoId, nuevoLike);
     
 }

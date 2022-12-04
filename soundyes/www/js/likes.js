@@ -7,10 +7,10 @@ var likes = {
                 tx.executeSql("UPDATE like SET likes=?1 WHERE id=?2",[likes, id],
                 function(tx, resultado){
                     console.log(resultado);
-                    alert("Acutialización correcta");
+                    console.log("Acutialización correcta");
                 },
                 function(tx, error){
-                    alert("Falló actualizar, revisa la conexión");
+                    console.log("Falló actualizar, revisa la conexión");
                 }
                 );
             },
